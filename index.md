@@ -4,22 +4,22 @@ layout: home
 
 hero:
   name: "Zinc"
-  text: "Zinc is a high-performance HTTP web framework written in Zig."
-  tagline: My great project tagline
+  text: "High-performance web framework written in Zig."
+  tagline: Use Zinc to build high-performance web software.
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Get started
+      link: /src/getting-started
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Examples
+      link: /src/getting-started
 
 features:
-  - title: Feature A
+  - title: Performance
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
+  - title: Reliability
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: Productivity
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 

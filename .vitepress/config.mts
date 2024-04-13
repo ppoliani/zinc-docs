@@ -5,24 +5,25 @@ export default defineConfig({
   title: "Zinc",
   description: "Zinc is a high-performance HTTP web framework written in Zig.",
   themeConfig: {
+    logo: '/zero.svg',
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Get Started', link: '/src/getting-started' },
     ],
 
     sidebar: [
       {
         text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Examples', link: '/src/getting-started' }
         ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/zon-dev/zinc' }
     ]
   }
 })
