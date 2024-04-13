@@ -1,0 +1,15 @@
+services:
+  zinc.zon.dev:
+    image: oven/bun
+    container_name: zinc.zon.dev
+    ports:
+      - ${PORT}:8080
+    command:
+      - /bin/sh
+      - -c
+      - |
+        bun install
+        bun docs:dev --host 0.0.0.0 --port 8080
+    volumes:
+      - .:/home/bun/app
+    
