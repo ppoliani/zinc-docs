@@ -8,7 +8,7 @@ In this quickstart, we’ll glean insights from code segments and learn how to:
 
 ## Requirements
 
-- Zig 0.11.0 or above
+- Zig 0.13.0 or above
 
 ## Installation
 
@@ -17,7 +17,7 @@ To install Zinc package, you need to install Zig and set your Zig workspace firs
 1. Download and install it:
 
 ```sh
-$ zig fetch --save https://github.com/zon-dev/zinc/archive/refs/tags/0.1.0.tar.gz 
+$ zig fetch --save https://github.com/zon-dev/zinc/archive/refs/tags/0.0.1-alpha3.tar.gz
 ```
 
 2. Adding to `build.zig`
