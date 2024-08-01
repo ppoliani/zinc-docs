@@ -18,7 +18,8 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'Getting started', link: '/src/getting-started' },
-          { text: 'Basic routing', link: '/src/basic-routing' }
+          { text: 'Basic routing', link: '/src/basic-routing' },
+          { text: 'JSON response', link: '/src/json-response' },
         ]
       },
     ],
