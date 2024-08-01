@@ -13,7 +13,7 @@ const z = @import("zinc");
 
 2. Create a handle function for http request.
 ```zig
-fn hello(ctx: *z.Context, _: *z.Request, _res_: *z.Response) anyerror!void {
+fn hello(ctx: *z.Context, _: *z.Request, _: *z.Response) anyerror!void {
     try ctx.JSON("Hello!");
 }
 ```
