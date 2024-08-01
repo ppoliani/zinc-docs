@@ -20,7 +20,7 @@ fn hello(_: *z.Context, _: *z.Request, res: *z.Response) anyerror!void {
 
 3. Create an zinc engine, and add handle function to router.
 ```zig
-var engine = try z.Engine.new(8080);
+var zinc = try z.Engine.new(8080);
 
 var router = &engine.router;
 try router.get("/hello", hello);
@@ -31,16 +31,16 @@ try router.get("/hello", hello);
 const z = @import("zinc");
 
 pub fn main() !void {
-    var engine = try z.Engine.new(8080);
+    var zinc = try z.Engine.new(8080);
 
-    var router = &engine.router;
+    var router = &zinc.router;
     try router.get("/hello", hello);
 
-    try engine.run();
+    try zinc.run();
 }
 
-fn hello(_: *z.Context, _: *z.Request, res: *z.Response) anyerror!void {
-    try res.send("Hello!");
+fn hello(ctx: *z.Context, _: *z.Request, _: *z.Response) anyerror!void {
+    try ctx.Text("Hello!");
 }
 ```
 
