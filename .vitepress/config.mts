@@ -17,9 +17,10 @@ export default defineConfig({
       {
         text: 'Examples',
         items: [
-          { text: 'Examples', link: '/src/getting-started' }
+          { text: 'Getting started', link: '/src/getting-started' },
+          { text: 'Basic routing', link: '/src/basic-routing' }
         ]
-      }
+      },
     ],
 
     socialLinks: [

@@ -32,8 +32,12 @@ exe.root_module.addImport("zinc", zinc.module("zinc"));
 3. Import it in your code:
 ```zig
 const zinc = @import("zinc");
+```
+
+4. Create a http server and run.
+```zig
 pub fn main() !void {
-    const engine = zinc.Engine.default();
+    var engine = zinc.Engine.default();
     _ = try engine.run();
 }
 ```
