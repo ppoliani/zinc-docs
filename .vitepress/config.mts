@@ -20,6 +20,7 @@ export default defineConfig({
           { text: 'Getting started', link: '/src/getting-started' },
           { text: 'Basic routing', link: '/src/basic-routing' },
           { text: 'JSON response', link: '/src/json-response' },
+          { text: 'Route Not Found', link: '/src/route-not-found' },
         ]
       },
     ],

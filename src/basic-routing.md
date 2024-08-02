@@ -22,7 +22,7 @@ fn hello(ctx: *z.Context, _: *z.Request, _: *z.Response) anyerror!void {
 ```zig
 var zinc = try z.Engine.init(8080);
 
-var router = &engine.router;
+var router = zinc.getRouter();
 try router.get("/hello", hello);
 ```
 
@@ -33,7 +33,7 @@ const z = @import("zinc");
 pub fn main() !void {
     var zinc = try z.Engine.init(8080);
 
-    var router = &zinc.router;
+    var router = zinc.getRouter();
     try router.get("/hello", hello);
 
     try zinc.run();
