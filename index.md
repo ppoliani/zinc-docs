@@ -12,14 +12,14 @@ hero:
       link: /src/getting-started
     - theme: alt
       text: Examples
-      link: /src/getting-started
+      link: /src/basic-routing
 
 features:
   - title: Performance
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Reliability
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 
   - title: Productivity
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: Keep the API simple and easy to use.
+  - title: Reliability
+    details: 
 ---
 
