@@ -12,7 +12,7 @@ var catchers = zinc.getCatchers();
 try catchers.put(.not_found, notFound);
 ```
 
-1. Complete code.
+2. Complete code.
 ```zig
 const z = @import("zinc");
 

@@ -17,7 +17,7 @@ hero:
 features:
   - title: Performance
     details: 
-  - title: Productivity
+  - title: Usability
     details: Keep the API simple and easy to use.
   - title: Reliability
     details: 
