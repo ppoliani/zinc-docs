@@ -7,7 +7,7 @@ weight: 5
 ## Page Not Found.
 
 1. Use catcher to capture specific status codes and execute handler method.
-```
+```zig
 var catchers = z.getCatchers();
 try catchers.put(.not_found, notFound);
 ```

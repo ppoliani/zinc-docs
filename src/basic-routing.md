@@ -1,10 +1,10 @@
 ---
-title: "BasicRouting"
+title: "Basic Routing"
 draft: false
 weight: 3
 ---
 
-## Example.
+## Basic Routing.
 
 1. Import it in your code:
 ```zig

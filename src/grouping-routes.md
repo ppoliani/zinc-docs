@@ -1,13 +1,12 @@
-
 ---
 title: "Grouping Routes"
 draft: false
-weight: 5
+weight: 6
 ---
 
 ## Grouping Routes.
 
-```
+```zig
 const std = @import("std");
 const zinc = @import("zinc");
 
@@ -15,7 +14,6 @@ pub fn main() !void {
     var z = try zinc.init(.{ .port = 8080 });
 
     var router = z.getRouter();
-    try router.get("/", helloWorld);
 
     // /api
     var group = try router.group("/api", api);
@@ -24,15 +22,11 @@ pub fn main() !void {
     // /api/v2
     try group.get("/v2", v2);
 
-    for (router.routes.items) |route| {
+    for (router.getRoutes().items) |route| {
         std.debug.print("Route: {s}\n", .{route.path});
     }
 
     try z.run();
-}
-
-fn helloWorld(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    try ctx.Text(.{}, "Hello world!");
 }
 
 fn api(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
@@ -54,9 +48,9 @@ fn v2(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
 }
 ```
 
-outputs
-```
-Route: /
+outputs:
+
+```zig
 Route: /api
 Route: /api/v1
 Route: /api/v2
