@@ -10,18 +10,21 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Get Started', link: '/src/getting-started' },
+      { text: 'Quickstart', link: '/src/quickstart' },
     ],
 
     sidebar: [
+      {text: 'Home', link: '/'},
+      {text: 'Quickstart', link: '/src/quickstart'},
+
       {
         text: 'Examples',
         items: [
-          { text: 'Getting started', link: '/src/getting-started' },
           { text: 'Basic routing', link: '/src/basic-routing' },
           { text: 'JSON response', link: '/src/json-response' },
           { text: 'Redirects', link: '/src/redirects' },
-          { text: 'Route Not Found', link: '/src/route-not-found' },
+          { text: 'Page Not Found', link: '/src/page-not-found' },
+          { text: 'grouping-routes', link: '/src/grouping-routes' },
         ]
       },
     ],

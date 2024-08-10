@@ -1,10 +1,10 @@
 ---
-title: "JsonResponse"
+title: "Page Not Found"
 draft: false
 weight: 5
 ---
 
-## JSON Response.
+## Page Not Found.
 
 1. Use catcher to capture specific status codes and execute handler method.
 ```

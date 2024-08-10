@@ -8,8 +8,8 @@ hero:
   tagline: Use Zinc to build high-performance web software.
   actions:
     - theme: brand
-      text: Get started
-      link: /src/getting-started
+      text: Quickstart
+      link: /src/quickstart
     - theme: alt
       text: Examples
       link: /src/basic-routing
