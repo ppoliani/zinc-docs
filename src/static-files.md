@@ -49,5 +49,5 @@ pub fn assets(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!
 }
 ```
 
-Read more information about [Examples](https://github.com/zon-dev/zinc-examples).
+Read more information about [Examples](https://github.com/zon-dev/zinc-examples/tree/main/examples/serving-static-files).
 
