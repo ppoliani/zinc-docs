@@ -23,8 +23,9 @@ export default defineConfig({
           { text: 'Basic routing', link: '/src/basic-routing' },
           { text: 'JSON response', link: '/src/json-response' },
           { text: 'Redirects', link: '/src/redirects' },
-          { text: 'Page Not Found', link: '/src/page-not-found' },
-          { text: 'grouping-routes', link: '/src/grouping-routes' },
+          { text: 'Page not found', link: '/src/page-not-found' },
+          { text: 'Grouping routes', link: '/src/grouping-routes' },
+          { text: 'Static files', link: '/src/static-files' },
         ]
       },
     ],
