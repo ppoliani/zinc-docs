@@ -8,12 +8,12 @@ weight: 5
 
 ```zig
 pub fn index(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    try ctx.file(.{}, "examples/serving-static-files/index.html");
+    try ctx.file("examples/serving-static-files/index.html", .{});
 }
 
 pub fn assets(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    ctx.dir(.{}, "examples/serving-static-files/assets") catch {
-        try ctx.text(.{.status = .not_found}, "Not found");
+    ctx.dir("examples/serving-static-files/assets", .{}) catch {
+        try ctx.text("Not found", .{.status = .not_found});
     };
 }
 ```
@@ -39,12 +39,12 @@ pub fn main() !void {
 }
 
 pub fn index(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    try ctx.file(.{}, "examples/serving-static-files/index.html");
+    try ctx.file("examples/serving-static-files/index.html", .{});
 }
 
 pub fn assets(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    ctx.dir(.{}, "examples/serving-static-files/assets") catch {
-        try ctx.text(.{.status = .not_found}, "Not found");
+    ctx.dir("examples/serving-static-files/assets", .{}) catch {
+        try ctx.text("Not found", .{.status = .not_found});
     };
 }
 ```
