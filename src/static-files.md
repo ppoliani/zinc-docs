@@ -7,11 +7,11 @@ weight: 5
 ## Static Files
 
 ```zig
-pub fn index(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+pub fn index(ctx: *zinc.Context) anyerror!void {
     try ctx.file("examples/serving-static-files/index.html", .{});
 }
 
-pub fn assets(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+pub fn assets(ctx: *zinc.Context) anyerror!void {
     ctx.dir("examples/serving-static-files/assets", .{}) catch {
         try ctx.text("Not found", .{.status = .not_found});
     };
@@ -38,11 +38,11 @@ pub fn main() !void {
     try z.run();
 }
 
-pub fn index(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+pub fn index(ctx: *zinc.Context) anyerror!void {
     try ctx.file("examples/serving-static-files/index.html", .{});
 }
 
-pub fn assets(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+pub fn assets(ctx: *zinc.Context) anyerror!void {
     ctx.dir("examples/serving-static-files/assets", .{}) catch {
         try ctx.text("Not found", .{.status = .not_found});
     };

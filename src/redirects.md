@@ -8,12 +8,12 @@ weight: 5
 
 Issuing a HTTP redirect is easy. Both internal and external locations are supported.
 ```zig
-fn redirect(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn redirect(ctx: *zinc.Context) anyerror!void {
     // Redirect to /hello, with a 302 status code
     try ctx.redirect(.found, "/hello");
 }
 
-fn redirectToGitHub(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn redirectToGitHub(ctx: *zinc.Context) anyerror!void {
     // Redirect to https://github.com, with a 301 status code
     try ctx.redirect(.moved_permanently,"https://github.com");
 }
@@ -22,6 +22,7 @@ fn redirectToGitHub(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) any
 2. Complete code.
 ```zig
 const zinc = @import("zinc");
+const std = @import("std");
 
 pub fn main() !void {
     var z = try zinc.init(.{ .port = 8080 });
@@ -34,16 +35,16 @@ pub fn main() !void {
     try z.run();
 }
 
-fn redirect(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn redirect(ctx: *zinc.Context) anyerror!void {
     // Redirect to /hello, with a 302 status code
     try ctx.redirect(.found, "/hello");
 }
-fn redirectToGitHub(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn redirectToGitHub(ctx: *zinc.Context) anyerror!void {
     // Redirect to https://github.com, with a 301 status code
-    try ctx.redirect(.moved_permanently,"https://github.com");
+    try ctx.redirect(.moved_permanently, "https://github.com");
 }
 
-fn helloWorld(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn helloWorld(ctx: *zinc.Context) anyerror!void {
     try ctx.text("Hello world!", .{});
 }
 ```

@@ -25,7 +25,7 @@ pub fn main() !void {
     try z.run();
 }
 
-fn notFound(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn notFound(ctx: *zinc.Context) anyerror!void {
     try ctx.html("<h1>404 Not Found</h1>", .{
         .status = .not_found,
     });

@@ -11,10 +11,16 @@ weight: 3
 const zinc = @import("zinc");
 ```
 
-2. Create a handle function for http request.
+2. Create handle functions to process the HTTP request
 ```zig
-fn helloWorld(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn helloWorld(ctx: *zinc.Context) anyerror!void {
     try ctx.json(.{ .message = "Hello, World!" }, .{});
+}
+fn hi(ctx: *zinc.Context) anyerror!void {
+    try ctx.text("Hi!", .{});
+}
+fn pong(ctx: *zinc.Context) anyerror!void {
+    try ctx.html("<h1>Pong!</h1>", .{});
 }
 ```
 
@@ -24,6 +30,9 @@ var z = try zinc.init(.{ .port = 8080 });
 
 var router = z.getRouter();
 try router.get("/hello", helloWorld);
+try router.post("/hi", hi);
+try router.add(&.{ .GET, .POST }, "/ping", pong);
+
 ```
 
 3. Complete code.
@@ -42,18 +51,15 @@ pub fn main() !void {
     try z.run();
 }
 
-fn helloWorld(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
+fn helloWorld(ctx: *zinc.Context) anyerror!void {
     try ctx.json(.{ .message = "Hello, World!" }, .{});
 }
-
-fn hi(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    try ctx.text("hi!", .{});
+fn hi(ctx: *zinc.Context) anyerror!void {
+    try ctx.text("Hi!", .{});
 }
-
-fn pong(ctx: *zinc.Context, _: *zinc.Request, _: *zinc.Response) anyerror!void {
-    try ctx.text("pong!", .{});
+fn pong(ctx: *zinc.Context) anyerror!void {
+    try ctx.html("<h1>Pong!</h1>", .{});
 }
-
 ```
 
 Read more information about [Examples](https://github.com/zon-dev/zinc-examples).
