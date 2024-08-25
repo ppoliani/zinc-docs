@@ -13,7 +13,7 @@ name:jack
 friend:mike
 ```
 
-2. Complete code.
+1. Complete code.
 ```zig
 const std = @import("std");
 const zinc = @import("zinc");

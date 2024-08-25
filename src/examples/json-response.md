@@ -1,10 +1,10 @@
 ---
-title: "JsonResponse"
+title: "Json response"
 draft: false
 weight: 5
 ---
 
-## JSON Response.
+## JSON response.
 
 1. Import it in your code:
 ```zig

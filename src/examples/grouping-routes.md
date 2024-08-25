@@ -1,10 +1,10 @@
 ---
-title: "Grouping Routes"
+title: "Grouping routes"
 draft: false
 weight: 6
 ---
 
-## Grouping Routes.
+## Grouping routes.
 
 ```zig
 const std = @import("std");

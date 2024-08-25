@@ -1,10 +1,10 @@
 ---
-title: "Page Not Found"
+title: "Page not found"
 draft: false
 weight: 5
 ---
 
-## Page Not Found.
+## Page not found.
 
 1. Use catcher to capture specific status codes and execute handler method.
 ```zig
