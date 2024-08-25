@@ -28,19 +28,19 @@ pub fn main() !void {
 }
 
 fn queryAndForm(ctx: *zinc.Context) anyerror!void {
-    const query_map = ctx.queryMap().?;
-    const ids = query_map.get("id").?;
-    const id = ids.items[0];
-    const messages = query_map.get("message").?;
+    const id = try ctx.queryString("id");
+
+    const messages: std.ArrayList([]const u8) = try ctx.queryValues("message");
 
     const form = ctx.postFormMap().?; // form is a map
     const name = form.get("name").?;
     const friend = form.get("friend").?;
 
-    const bf = try std.fmt.allocPrint(std.heap.page_allocator, "id: {s}\nname: {s} \nfriend: {s}\nmessages: {s} {s}", .{ id, name, friend, messages.items[0],messages.items[1] });
+    const bf = try std.fmt.allocPrint(std.heap.page_allocator, "id: {s}\nname: {s} \nfriend: {s}\nmessages: {s} {s}", .{ id, name, friend, messages.items[0], messages.items[1] });
 
     try ctx.text(bf, .{});
 }
+
 
 ```
 response:
