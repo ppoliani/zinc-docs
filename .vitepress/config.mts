@@ -24,7 +24,7 @@ export default defineConfig({
           { text: 'Grouping routes', link: '/src/examples/grouping-routes' },
           { text: 'JSON response', link: '/src/examples/json-response' },
           { text: 'Page not found', link: '/src/examples/page-not-found' },
-          { text: 'Query and post form', link: '/src/examples/redirects' },
+          { text: 'Query and post form', link: '/src/examples/query-and-post-form' },
           { text: 'Redirects', link: '/src/examples/redirects' },
           { text: 'Static files', link: '/src/examples/static-files' },
         ]
