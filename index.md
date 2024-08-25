@@ -12,11 +12,11 @@ hero:
       link: /src/quickstart
     - theme: alt
       text: Examples
-      link: /src/basic-routing
+      link: /src/examples/basic-routing
 
 features:
   - title: Performance
-    details: 
+    details:
   - title: Usability
     details: Keep the API simple and easy to use.
   - title: Reliability

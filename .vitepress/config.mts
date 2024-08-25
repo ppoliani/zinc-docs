@@ -20,12 +20,13 @@ export default defineConfig({
       {
         text: 'Examples',
         items: [
-          { text: 'Basic routing', link: '/src/basic-routing' },
-          { text: 'JSON response', link: '/src/json-response' },
-          { text: 'Redirects', link: '/src/redirects' },
-          { text: 'Page not found', link: '/src/page-not-found' },
-          { text: 'Grouping routes', link: '/src/grouping-routes' },
-          { text: 'Static files', link: '/src/static-files' },
+          { text: 'Basic routing', link: '/src/examples/basic-routing' },
+          { text: 'Grouping routes', link: '/src/examples/grouping-routes' },
+          { text: 'JSON response', link: '/src/examples/json-response' },
+          { text: 'Page not found', link: '/src/examples/page-not-found' },
+          { text: 'Query and post form', link: '/src/examples/redirects' },
+          { text: 'Redirects', link: '/src/examples/redirects' },
+          { text: 'Static files', link: '/src/examples/static-files' },
         ]
       },
     ],
