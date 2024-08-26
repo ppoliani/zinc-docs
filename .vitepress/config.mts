@@ -23,6 +23,7 @@ export default defineConfig({
           { text: 'Basic routing', link: '/src/examples/basic-routing' },
           { text: 'Grouping routes', link: '/src/examples/grouping-routes' },
           { text: 'JSON response', link: '/src/examples/json-response' },
+          { text: 'Map as query parameters', link: '/src/examples/map-as-query-parameters' },
           { text: 'Page not found', link: '/src/examples/page-not-found' },
           { text: 'Query and post form', link: '/src/examples/query-and-post-form' },
           { text: 'Query parameters', link: '/src/examples/query-parameters' },
