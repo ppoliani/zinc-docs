@@ -9,13 +9,11 @@ weight: 5
 POST /post?id=1234&message=hello&message=world HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
 
-name:jack
-friend:mike
+name=jack&friend=mike
 ```
 
 1. Complete code.
 ```zig
-const std = @import("std");
 const zinc = @import("zinc");
 
 pub fn main() !void {
@@ -29,26 +27,32 @@ pub fn main() !void {
 
 fn queryAndForm(ctx: *zinc.Context) anyerror!void {
     const id = try ctx.queryString("id");
+    const messages = try ctx.queryValues("message");
 
-    const messages: std.ArrayList([]const u8) = try ctx.queryValues("message");
-
-    const form = ctx.postFormMap().?; // form is a map
+    const form = ctx.getPostFormMap().?;
     const name = form.get("name").?;
     const friend = form.get("friend").?;
 
-    const bf = try std.fmt.allocPrint(std.heap.page_allocator, "id: {s}\nname: {s} \nfriend: {s}\nmessages: {s} {s}", .{ id, name, friend, messages.items[0], messages.items[1] });
-
-    try ctx.text(bf, .{});
+    try ctx.json(.{
+        .id = id,
+        .name = name,
+        .friend = friend,
+        .messages = .{ messages.items[0], messages.items[1] },
+    }, .{});
 }
-
-
 ```
+
 response:
-```
-id: 1234
-name: jack 
-friend: mike
-messages: hello world
+```zig
+{
+    "id": "1234",
+    "name": "jack",
+    "friend": "mike",
+    "messages": [
+        "hello",
+        "world"
+    ]
+}
 ```
 
 Read more information about [Examples](https://github.com/zon-dev/zinc-examples/tree/main/examples/serving-static-files).

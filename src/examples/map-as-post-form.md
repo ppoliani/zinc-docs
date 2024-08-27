@@ -14,7 +14,6 @@ name[frist]=jack&name[last]=mike
 
 1. Complete code.
 ```zig
-const std = @import("std");
 const zinc = @import("zinc");
 
 pub fn main() !void {
@@ -26,7 +25,7 @@ pub fn main() !void {
     try z.run();
 }
 fn queryParamters(ctx: *zinc.Context) anyerror!void {
-    var name: std.StringHashMap([]const u8) = ctx.postFormMap("name") orelse return ctx.text("name not found", .{});
+    var name = ctx.postFormMap("name") orelse return ctx.text("name not found", .{});
     const frist_name = name.get("frist").?;
     const last_name = name.get("last").?;
 
@@ -35,7 +34,6 @@ fn queryParamters(ctx: *zinc.Context) anyerror!void {
         .last_name = last_name,
     }, .{});
 }
-
 ```
 response:
 ```

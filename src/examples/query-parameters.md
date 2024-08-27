@@ -11,7 +11,6 @@ GET /query?id=1234&message=hello&message=world HTTP/1.1
 
 1. Complete code.
 ```zig
-const std = @import("std");
 const zinc = @import("zinc");
 
 pub fn main() !void {
@@ -25,18 +24,24 @@ pub fn main() !void {
 
 fn queryParamters(ctx: *zinc.Context) anyerror!void {
     const id = try ctx.queryString("id");
-    const messages: std.ArrayList([]const u8) = try ctx.queryValues("message");
+    const messages = try ctx.queryValues("message");
 
-    const bf = try std.fmt.allocPrint(std.heap.page_allocator, "id: {s}\nmessages: {s} {s}", .{ id, messages.items[0], messages.items[1] });
-
-    try ctx.text(bf, .{});
+    try ctx.json(.{
+        .id = id,
+        .message = .{ messages.items[0], messages.items[1] },
+    }, .{});
 }
 
 ```
 response:
 ```
-id: 1234
-messages: hello world
+{
+  "a": "1234",
+  "b": [
+    "hello",
+    "world"
+  ]
+}
 ```
 
 Read more information about [Examples](https://github.com/zon-dev/zinc-examples/tree/main/examples/serving-static-files).
