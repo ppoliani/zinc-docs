@@ -1,10 +1,10 @@
 ---
-title: "StaticFiles"
+title: "Static files"
 draft: false
 weight: 5
 ---
 
-## Static Files
+## Static files
 
 ```zig
 pub fn index(ctx: *zinc.Context) anyerror!void {
