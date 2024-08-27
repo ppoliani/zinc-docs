@@ -7,6 +7,9 @@ weight: 5
 ## HTTP methods
 
 ```zig
+const zinc = @import("zinc");
+
+pub fn main() !void {
     var z = try zinc.default();
     var router = z.getRouter();
     
