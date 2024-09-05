@@ -26,6 +26,7 @@ export default defineConfig({
           { text: 'JSON response', link: '/src/examples/json-response' },
           { text: 'Map as post form', link: '/src/examples/map-as-post-form' },
           { text: 'Map as query parameters', link: '/src/examples/map-as-query-parameters' },
+          { text: 'Middleware', link: '/src/examples/middleware' },
           { text: 'Page not found', link: '/src/examples/page-not-found' },
           { text: 'Query and post form', link: '/src/examples/query-and-post-form' },
           { text: 'Query parameters', link: '/src/examples/query-parameters' },
