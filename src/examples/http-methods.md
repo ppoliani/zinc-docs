@@ -24,7 +24,7 @@ pub fn main() !void {
     try router.trace("/some-trace", someTrace);
 
     // Add any HTTP methods to custom routeing.
-    try router.add(&.{.GET, .HEAD}, "/assets", assets);
+    try router.addAny(&.{.GET, .HEAD}, "/assets", assets);
 
     try z.run();
 }

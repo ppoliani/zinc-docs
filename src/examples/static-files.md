@@ -29,7 +29,7 @@ pub fn main() !void {
     var router = z.getRouter();
 
     try router.get("/", index);
-    try router.add(&.{.GET, .HEAD}, "/assets", assets);
+    try router.addAny(&.{.GET, .HEAD}, "/assets", assets);
 
     for (router.getRoutes().items) |route| {
         std.debug.print("Route: {s}\n", .{route.path});
