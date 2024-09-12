@@ -17,14 +17,14 @@ pub fn main() !void {
 
     var router = z.getRouter();
     try router.get("/", helloWorld);
+
     try z.run();
 }
 
 fn helloWorld(ctx: *zinc.Context) anyerror!void {
     std.debug.print("Hello, World!\n", .{});
-    try ctx.json(.{ .message = "Hello, World!" }, .{});
+    try ctx.text("Hello, World!", .{});
 }
-
 fn logger(ctx: *zinc.Context) anyerror!void {
     const t = std.time.microTimestamp();
     std.debug.print("logger1\n", .{});
@@ -33,7 +33,7 @@ fn logger(ctx: *zinc.Context) anyerror!void {
     try ctx.next();
     // after request
     const latency = std.time.microTimestamp() - t;
-    std.debug.print("latency: {}\n", .{latency});
+    std.debug.print("Done all. latency: {}\n", .{latency});
 }
 fn logger2(ctx: *zinc.Context) anyerror!void {
     std.debug.print("logger2\n", .{});
@@ -42,12 +42,30 @@ fn logger2(ctx: *zinc.Context) anyerror!void {
 }
 fn logger3(ctx: *zinc.Context) anyerror!void {
     std.debug.print("logger3\n", .{});
-    try ctx.text("logger3", .{});
+    // Invoke next handler (logger4) in the chain.
     try ctx.next();
+    // This line is executed after the next handler in the chain.
+    std.debug.print("logger3 done.\n", .{});
 }
 fn logger4(ctx: *zinc.Context) anyerror!void {
     std.debug.print("logger4\n", .{});
     try ctx.html("<h1>logger4<h1>", .{});
+    // Invoke the last handler (helloWorld) in the chain.
     try ctx.next();
 }
+```
+
+Open the browse and access http://127.0.0.1:8080/, you will see the web page like that below.
+```text
+{"message":"logger2"}<h1>logger4<h1>Hello, World!
+```
+And you will see the output in the console.
+```console
+logger1
+logger2
+logger3
+logger4
+Hello, World!
+logger3 done.
+Done all. latency: 131
 ```
