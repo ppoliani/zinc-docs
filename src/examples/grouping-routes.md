@@ -16,22 +16,31 @@ pub fn main() !void {
     var router = z.getRouter();
 
     var group = try router.group("/api");
+
     // /api
     try group.get("", api);
-    // /api/v1
-    try group.get("/v1", v1);
-    // /api/v2
-    try group.post("/v2", v2);
 
-    for (router.getRoutes().items) |route| {
-        std.debug.print("Route: {s} {s}\n", .{ @tagName(route.method), route.path });
-    }
+    // /api/v1
+    var v1group = try group.group("/v1");
+    // /api/v1/login
+    try v1group.get("/login", v1);
+    // /api/v1/logout
+    try v1group.post("/logout", v1);
+
+    // /api/v2
+    var v2group = try group.group("/v2/user");
+    // /api/v2/user/login
+    try v2group.addAny(&.{ .GET, .POST }, "/login", v2);
+    // /api/v2/user/logout
+    try v2group.addAny(&.{ .GET, .POST }, "/logout", v2);
+
+    router.printRouter();
 
     try z.run();
 }
 
 fn api(ctx: *zinc.Context) anyerror!void {
-    try ctx.json(.{ .message = "api home" }, .{});
+    try ctx.json(.{ .message = "api" }, .{});
 }
 fn v1(ctx: *zinc.Context) anyerror!void {
     try ctx.json(.{ .version = "v1" }, .{});
@@ -44,7 +53,13 @@ fn v2(ctx: *zinc.Context) anyerror!void {
 outputs:
 
 ```zig
-Route: GET  /api
-Route: GET  /api/v1
-Route: POST /api/v2
+|/
+|  /api  { GET }
+|    /v1
+|      /logout  { POST }
+|      /login  { GET }
+|    /v2
+|      /user
+|        /logout  { GET, POST }
+|        /login  { GET, POST }
 ```
