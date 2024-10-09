@@ -16,10 +16,9 @@ hero:
 
 features:
   - title: Performance
-    details:
+    details: Built on std, not the fastest in universe, but fast enough.
   - title: Usability
     details: Keep the API simple and easy to use.
   - title: Reliability
-    details: 
----
+    details: Lots of test cases.
 
