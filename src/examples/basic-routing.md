@@ -27,6 +27,7 @@ fn pong(ctx: *zinc.Context) anyerror!void {
 3. Create an zinc engine, and add handle function to router.
 ```zig
 var z = try zinc.init(.{ .port = 8080 });
+defer z.deinit();
 
 var router = z.getRouter();
 try router.get("/hello", helloWorld);
@@ -42,6 +43,7 @@ const zinc = @import("zinc");
 
 pub fn main() !void {
     var z = try zinc.init(.{ .port = 8080 });
+    defer z.deinit();
 
     var router = z.getRouter();
     try router.get("/hello", helloWorld);

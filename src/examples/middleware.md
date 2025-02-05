@@ -11,6 +11,7 @@ const zinc = @import("zinc");
 const std = @import("std");
 pub fn main() !void {
     var z = try zinc.init(.{ .port = 8080 });
+    defer z.deinit();
 
     // Middlwares are executed in the order they are added
     try z.use(&.{ logger, logger2, logger3, logger4 });

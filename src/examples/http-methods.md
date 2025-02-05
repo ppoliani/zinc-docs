@@ -11,6 +11,8 @@ const zinc = @import("zinc");
 
 pub fn main() !void {
     var z = try zinc.default();
+    defer z.deinit();
+
     var router = z.getRouter();
     
     try router.get("/some-get", someGet);

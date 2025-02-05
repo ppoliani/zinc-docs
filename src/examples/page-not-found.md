@@ -18,6 +18,7 @@ const zinc = @import("zinc");
 
 pub fn main() !void {
     var z = try zinc.init(.{ .port = 8080 });
+    defer z.deinit();
 
     var catchers = z.getCatchers();
     try catchers.put(.not_found, notFound);
