@@ -21,6 +21,7 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'Basic routing', link: '/src/examples/basic-routing' },
+          { text: 'CORS', link: '/src/examples/cors' },
           { text: 'Grouping routes', link: '/src/examples/grouping-routes' },
           { text: 'HTTP methods', link: '/src/examples/http-methods' },
           { text: 'JSON response', link: '/src/examples/json-response' },
